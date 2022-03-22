@@ -1,11 +1,19 @@
 {
-  "name": "my-webpack-fedaration",
+  "name": "my-app-federation",
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/toannt181/my-app-federation.git"
+  },
   "author": "",
-  "license": "ISC"
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/toannt181/my-app-federation/issues"
+  },
+  "homepage": "https://github.com/toannt181/my-app-federation#readme"
 }
