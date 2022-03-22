@@ -1,14 +1,17 @@
-const { Configuration, container } = require("webpack");
+const { HotModuleReplacementPlugin, container } = require("webpack");
 const HtmlWebpackPlugin = require("html-webpack-plugin");
 const path = require("path");
 
 module.exports = {
   mode: "development",
-  // entry: path.resolve(__dirname, "./src/index.tsx"),
-  // output: {
-  //   path: path.resolve(__dirname, "./dist"),
-  //   filename: "index_bundle.js",
-  // },
+  entry: {
+    app: "./src/index.ts",
+  },
+  output: {
+    filename: "[name].bundle.js",
+    path: path.resolve(__dirname, "dist"),
+    clean: true,
+  },
   devServer: {
     static: {
       directory: path.join(__dirname, "public"),
@@ -22,13 +25,16 @@ module.exports = {
       name: "MFE1",
       filename: "remoteEntry.js",
       exposes: {
-        "./Button": "./modules/Main/Button",
+        "./Button": "./src/Button",
       },
     }),
     new HtmlWebpackPlugin({
-      template: path.resolve(__dirname, "public/index.html"),
-      favicon: "./public/favicon.ico",
+      title: "Hot Module Replacement",
+      template: "public/index.html",
+      // favicon: "./public/favicon.ico",
+      // manifest: "./public/manifest.json",
     }),
+    new HotModuleReplacementPlugin(),
   ],
   module: {
     rules: [
