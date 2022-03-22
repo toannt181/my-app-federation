@@ -25,7 +25,7 @@ module.exports = {
       name: "MFE1",
       filename: "remoteEntry.js",
       exposes: {
-        "./Button": "./src/Button",
+        "./Homepage": "./src/App",
       },
     }),
     new HtmlWebpackPlugin({

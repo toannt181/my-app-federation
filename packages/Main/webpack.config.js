@@ -17,15 +17,15 @@ module.exports = {
       directory: path.join(__dirname, "public"),
     },
     compress: true,
-    port: 9000,
+    port: 9001,
     hot: true,
   },
   plugins: [
     new container.ModuleFederationPlugin({
-      name: "MFE1",
+      name: "MFE2",
       filename: "remoteEntry.js",
-      exposes: {
-        "./Button": "./src/Button",
+      remotes: {
+        MFE1: "MFE1@http://localhost:9000/remoteEntry.js",
       },
     }),
     new HtmlWebpackPlugin({
